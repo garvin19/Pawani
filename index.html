@@ -8,56 +8,71 @@
 </head>
 <body>
 
-  <!-- Password Screen -->
+  <!-- Password Gate -->
   <div id="password-screen">
-    <h2>Enter Password to Continue</h2>
-    <input type="password" id="password" placeholder="Enter Password">
-    <button onclick="checkPassword()">Enter</button>
+    <h2>Enter the password to continue</h2>
+    <input type="password" id="password" placeholder="Password">
+    <button id="enter-btn" onclick="checkPassword()">❤ Enter ❤</button>
     <p id="error-message"></p>
   </div>
 
-  <!-- Website Content -->
+  <!-- Site Content -->
   <div id="site-content" style="display: none;">
+  
+    <!-- Typed Message Section -->
+    <div class="typed-message">
+      <p id="typer"></p>
+    </div>
+
     <section>
-      <h1>You’re as beautiful as this site 💖</h1>
+      <h1>You’re as lovely as this site</h1>
       <img src="images/her1.jpg" alt="Pawani smiling">
-
       <div class="text-box">
-        <p>From the moment I met you, you’ve made my world softer, kinder, and full of warmth. I made this site just to tell you — you mean everything to me.</p>
+        <p>From the moment I met you… you mean everything to me.</p>
       </div>
     </section>
 
     <section>
-      <h2>You light up every moment 🌸</h2>
+      <h2>You light up every moment</h2>
       <img src="images/her2.jpg" alt="Candid moment">
-      
       <div class="text-box">
-        <p>Every smile, every silly moment, every kind word from you stays with me. You are magic, Pawani.</p>
+        <p>Every smile, every moment with you stays in my heart. You are magic.</p>
       </div>
     </section>
 
     <section>
-      <h2>Just one more reason I love you... 💫</h2>
-      <img src="images/her3.jpg" alt="Laughing photo">
-      
+      <h2>Just one more reason I love you…</h2>
+      <img src="images/her3.jpg" alt="Laughing">
       <div class="text-box">
-        <p>You make every day brighter. Happy Girlfriend’s Day, baby. Here's to us 💝</p>
+        <p>You make every day brighter. Happy Girlfriend’s Day, baby. Here’s to us 💝</p>
       </div>
     </section>
+
   </div>
 
-  <!-- JavaScript for Password -->
   <script>
     function checkPassword() {
       const entered = document.getElementById("password").value;
-      const correct = "Iloveyou";
-      if (entered === correct) {
+      if (entered === "Iloveyou") {
         document.getElementById("password-screen").style.display = "none";
         document.getElementById("site-content").style.display = "block";
+        startTyping();
       } else {
         document.getElementById("error-message").textContent = "Wrong password!";
-        document.getElementById("error-message").style.color = "red";
       }
+    }
+
+    const message = "Happy Girlfriend’s Day, Pawani 💖 You are loved endlessly.";
+    function startTyping() {
+      const el = document.getElementById("typer");
+      let i = 0;
+      function type() {
+        if (i < message.length) {
+          el.textContent += message.charAt(i++);
+          setTimeout(type, 70);
+        }
+      }
+      type();
     }
   </script>
 </body>
