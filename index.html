@@ -3,44 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To My Lovely Pawani 💖</title>
+  <title>For Pawani 💖</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Password Screen -->
+  <div id="password-screen">
+    <h2>Enter Password to Continue</h2>
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error-message"></p>
+  </div>
+
+  <!-- Website Content -->
+  <div id="site-content" style="display: none;">
+    <section>
+      <h1>You’re as beautiful as this site 💖</h1>
+      <img src="images/her1.jpg" alt="Pawani smiling">
+
+      <div class="text-box">
+        <p>From the moment I met you, you’ve made my world softer, kinder, and full of warmth. I made this site just to tell you — you mean everything to me.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>You light up every moment 🌸</h2>
+      <img src="images/her2.jpg" alt="Candid moment">
+      
+      <div class="text-box">
+        <p>Every smile, every silly moment, every kind word from you stays with me. You are magic, Pawani.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Just one more reason I love you... 💫</h2>
+      <img src="images/her3.jpg" alt="Laughing photo">
+      
+      <div class="text-box">
+        <p>You make every day brighter. Happy Girlfriend’s Day, baby. Here's to us 💝</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- JavaScript for Password -->
   <script>
-    let password = prompt("Enter the password to view the site:");
-    if (password !== "Iloveyou") {
-      alert("Incorrect password. Please try again later.");
-      document.body.innerHTML = "";
+    function checkPassword() {
+      const entered = document.getElementById("password").value;
+      const correct = "Iloveyou";
+      if (entered === correct) {
+        document.getElementById("password-screen").style.display = "none";
+        document.getElementById("site-content").style.display = "block";
+      } else {
+        document.getElementById("error-message").textContent = "Wrong password!";
+        document.getElementById("error-message").style.color = "red";
+      }
     }
   </script>
-
-  <div class="container">
-    <h1 class="fade-in">Happy Girlfriend’s Day, My Love 💕</h1>
-
-    <div class="text-box fade-in">
-      <p>
-        You bring light into my life like no one else ever could. Every moment with you feels magical, and I’m beyond lucky to have you.
-      </p>
-    </div>
-
-    <div class="image-row fade-in">
-      <img src="images/her1.jpg" alt="Beautiful her" class="styled-img" />
-      <img src="images/her2.jpg" alt="Adorable" class="styled-img" />
-      <img src="images/her3.jpg" alt="Our memory" class="styled-img" />
-    </div>
-
-    <div class="text-box fade-in">
-      <p>
-        I made this just for you — not because I had to, but because you deserve the world and more. You’re my everything.
-      </p>
-    </div>
-
-    <div class="text-box fade-in">
-      <p>
-        One day, I’ll show you this in person and we’ll laugh at how much effort I put into a little site just to make you smile 😄💗
-      </p>
-    </div>
-  </div>
 </body>
 </html>
