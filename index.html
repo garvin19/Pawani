@@ -1,60 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To My Love</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-</head>
 <body>
-  <div class="heart-bg">
-    <!-- Hearts will be styled and animated in CSS -->
-    <div class="floating-heart" style="--i:0;"></div>
-    <div class="floating-heart" style="--i:1;"></div>
-    <div class="floating-heart" style="--i:2;"></div>
-    <div class="floating-heart" style="--i:3;"></div>
-    <div class="floating-heart" style="--i:4;"></div>
-    <div class="floating-heart" style="--i:5;"></div>
-  </div>
-
+  <div class="heart-bg">…floating hearts as before…</div>
   <div class="container">
-    <h1 id="typed-text" class="typed-text"></h1>
-
+    <h1 id="typed-text"></h1>
     <div class="section">
-      <img src="images/image1.jpg" alt="Her" class="image" />
+      <img src="images/her1.jpg" class="image"/>
       <div class="text">
-        <h2>You’re My Light</h2>
-        <p>Your presence makes life beautiful. You turn ordinary days into magical memories.</p>
+        <h2>You’re My Light</h2><p>…</p>
       </div>
     </div>
-
     <div class="section reverse">
-      <img src="images/image2.jpg" alt="Us" class="image" />
+      <img src="images/her2.jpg" class="image"/>
       <div class="text">
-        <h2>Forever Yours</h2>
-        <p>This isn’t just a website — it’s a piece of my heart. Built for you. Loved by you. Inspired by you.</p>
+        <h2>Forever Yours</h2><p>…</p>
       </div>
     </div>
-
-    <div class="footer">
-      <button class="heart-button">I Love You ❤️</button>
-    </div>
+    <div class="footer"><button class="heart-button">I Love You ❤️</button></div>
   </div>
-
-  <!-- Typed Text Animation -->
-  <script>
-    const message = "Happy Girlfriend's Day, My Love 💕";
-    let i = 0;
-    function typeWriter() {
-      if (i < message.length) {
-        document.getElementById("typed-text").innerHTML += message.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
-      }
-    }
-    window.onload = typeWriter;
-  </script>
+  <!-- typed text JS -->
+  <!-- floating hearts CSS as before -->
 </body>
-</html>
-
