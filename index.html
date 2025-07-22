@@ -1,66 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<
+html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Pawani 💖</title>
+  <title>For You ❤️</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="password-overlay" id="passwordOverlay">
-    <div class="password-box">
-      <h2>Enter your special code 💘</h2>
-      <input type="password" id="passwordInput" placeholder="Enter password" />
-      <button onclick="checkPassword()">Enter</button>
+  <div id="login-screen">
+    <div class="login-box">
+      <h2>Welcome, My Love 💖</h2>
+      <input type="password" id="password" placeholder="Enter the magic word..." />
+      <button onclick="checkPassword()" id="login-button">Enter</button>
+      <div class="hearts-container" id="heart-burst"></div>
     </div>
   </div>
 
-  <main class="container hidden">
-    <header class="hero fade-in">
-      <h1 class="typed-message" id="typedMessage"></h1>
-    </header>
+  <div id="main-content" style="display: none">
+    <div class="floating-hearts"></div>
 
-    <section class="section fade-in">
-      <div class="text">
-        <h2>You're the sunshine in my cloudy days ☀️</h2>
-        <p>
-          Every moment with you feels magical. Your smile is my favorite view, and your laugh is my favorite sound.
-        </p>
+    <section class="section section-1">
+      <h1 class="main-heading">Happy Girlfriend's Day</h1>
+      <h2 class="sub-heading">To the one who makes my world beautiful</h2>
+    </section>
+
+    <section class="section section-2">
+      <div class="text left">
+        <p>Your smile is my favorite sunrise, your laughter my favorite melody. Every day with you is a gift I never want to end.</p>
       </div>
-      <div class="image">
-        <img src="images/her1.jpg" alt="her1" />
+      <div class="image right">
+        <img src="images/her1.jpg" alt="Her 1">
       </div>
     </section>
 
-    <section class="section fade-in reverse">
-      <div class="image">
-        <img src="images/her2.jpg" alt="her2" />
+    <section class="section section-3">
+      <div class="image left">
+        <img src="images/her2.jpg" alt="Her 2">
       </div>
-      <div class="text">
-        <h2>You're my forever person 💞</h2>
-        <p>
-          I never believed in soulmates until I met you. Thank you for being patient, kind, and all mine.
-        </p>
+      <div class="text right">
+        <p>From the first moment, I knew you were someone special. Your kindness, your strength, and your soul light up my life.</p>
       </div>
     </section>
 
-    <section class="section fade-in">
-      <div class="text">
-        <h2>You’re everything I ever wanted 💗</h2>
-        <p>
-          I built this little world just for you — to say I love you more than words, and you deserve everything beautiful.
-        </p>
-      </div>
-      <div class="image">
-        <img src="images/her3.jpg" alt="her3" />
-      </div>
+    <section class="section section-4">
+      <p class="final-text">You are my favorite person, my biggest joy, and the love of my life.</p>
+      <p class="love-message">I Love You ❤️</p>
     </section>
-
-    <section class="footer fade-in">
-      <button class="heart-button">You're my whole world 💝</button>
-    </section>
-  </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
