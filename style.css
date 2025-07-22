@@ -1,119 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@300;400;600&display=swap');
-
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  background: #ffe6ec;
-  color: #5a145a;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #ffe6f0, #ffcce6);
+  color: #4d0039;
 }
 
-/* Password Gate Styling */
-#password-screen {
-  height: 100vh;
+.container {
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #d63384;
+}
+
+.section {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 60px 0;
+  flex-wrap: wrap;
+}
+
+.section.reverse {
+  flex-direction: row-reverse;
+}
+
+.text {
+  flex: 1;
+  padding: 20px;
+}
+
+.image {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  max-width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.heart-button {
+  background-color: #ff66a3;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-family: 'Pacifico', cursive;
+  cursor: pointer;
+  transition: 0.3s ease;
+  shape-outside: ellipse();
+}
+
+.heart-button:hover {
+  background-color: #ff3385;
+}
+
+.password-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff0f5;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffc2dc;
+  z-index: 999;
 }
-#password-screen h2 {
-  font-family: 'Parisienne', cursive;
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-}
-input[type=password] {
-  padding: 12px;
-  font-size: 1.1rem;
-  border: 2px solid #ff599e;
-  border-radius: 25px;
-  width: 220px;
-  margin-bottom: 15px;
+
+.password-box {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
-#enter-btn {
-  background: #ff599e;
+
+.password-box input {
+  padding: 10px;
+  width: 200px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid pink;
+}
+
+.password-box button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff80bf;
   border: none;
   color: white;
-  font-size: 1.1rem;
-  font-family: 'Parisienne', cursive;
-  padding: 12px 30px;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0px 4px 8px rgba(255,89,158,0.4);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-#enter-btn:hover {
-  background: #e04988;
-  transform: scale(1.05);
 }
 
-/* Error message */
-#error-message {
-  font-size: 0.9rem;
-  margin-top: 10px;
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeIn 1s ease-out forwards;
 }
 
-/* Typed message */
-.typed-message {
-  text-align: center;
-  padding: 40px 20px;
-  font-family: 'Parisienne', cursive;
-  font-size: 1.8rem;
-  color: #c2185b;
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* Section layout */
-section {
-  padding: 40px 20px;
-  max-width: 850px;
-  margin: auto;
-  background: #fff0f5;
-  border-radius: 20px;
-  margin-top: 30px;
-  box-shadow: 0 0 15px rgba(255,105,180,0.3);
-  animation: fadeInUp 1.3s ease forwards;
-}
-section h1, section h2 {
-  color: #c2185b;
-  margin-bottom: 20px;
-  font-family: 'Parisienne', cursive;
-}
-section img {
-  width: 80%;
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 20px;
-  display: block;
-  box-shadow: 0 5px 15px rgba(214,51,132,0.4);
-  transition: transform 0.3s ease;
-}
-section img:hover {
-  transform: scale(1.03);
-}
-.text-box {
-  background: #ffe4f2;
-  padding: 25px;
-  border-left: 6px solid #ff69b4;
-  margin-top: 20px;
-  border-radius: 15px;
-  animation: fadeInUp 1.8s ease forwards;
+.hidden {
+  display: none;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile responsiveness */
 @media (max-width: 768px) {
-  section {
-    padding: 30px 15px;
+  .section {
+    flex-direction: column;
   }
-  section img {
-    width: 100%;
+
+  .image img {
+    max-width: 90%;
   }
-  .typed-message {
-    font-size: 1.6rem;
+
+  .hero {
+    font-size: 1.5rem;
   }
 }

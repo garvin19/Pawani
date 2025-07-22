@@ -2,78 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Pawani 💖</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Password Gate -->
-  <div id="password-screen">
-    <h2>Enter the password to continue</h2>
-    <input type="password" id="password" placeholder="Password">
-    <button id="enter-btn" onclick="checkPassword()">❤ Enter ❤</button>
-    <p id="error-message"></p>
-  </div>
-
-  <!-- Site Content -->
-  <div id="site-content" style="display: none;">
-  
-    <!-- Typed Message Section -->
-    <div class="typed-message">
-      <p id="typer"></p>
+  <div class="password-overlay" id="passwordOverlay">
+    <div class="password-box">
+      <h2>Enter your special code 💘</h2>
+      <input type="password" id="passwordInput" placeholder="Enter password" />
+      <button onclick="checkPassword()">Enter</button>
     </div>
-
-    <section>
-      <h1>You’re as lovely as this site</h1>
-      <img src="images/her1.jpg" alt="Pawani smiling">
-      <div class="text-box">
-        <p>From the moment I met you… you mean everything to me.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>You light up every moment</h2>
-      <img src="images/her2.jpg" alt="Candid moment">
-      <div class="text-box">
-        <p>Every smile, every moment with you stays in my heart. You are magic.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Just one more reason I love you…</h2>
-      <img src="images/her3.jpg" alt="Laughing">
-      <div class="text-box">
-        <p>You make every day brighter. Happy Girlfriend’s Day, baby. Here’s to us 💝</p>
-      </div>
-    </section>
-
   </div>
 
-  <script>
-    function checkPassword() {
-      const entered = document.getElementById("password").value;
-      if (entered === "Iloveyou") {
-        document.getElementById("password-screen").style.display = "none";
-        document.getElementById("site-content").style.display = "block";
-        startTyping();
-      } else {
-        document.getElementById("error-message").textContent = "Wrong password!";
-      }
-    }
+  <main class="container hidden">
+    <header class="hero fade-in">
+      <h1 class="typed-message" id="typedMessage"></h1>
+    </header>
 
-    const message = "Happy Girlfriend’s Day, Pawani 💖 You are loved endlessly.";
-    function startTyping() {
-      const el = document.getElementById("typer");
-      let i = 0;
-      function type() {
-        if (i < message.length) {
-          el.textContent += message.charAt(i++);
-          setTimeout(type, 70);
-        }
-      }
-      type();
-    }
-  </script>
+    <section class="section fade-in">
+      <div class="text">
+        <h2>You're the sunshine in my cloudy days ☀️</h2>
+        <p>
+          Every moment with you feels magical. Your smile is my favorite view, and your laugh is my favorite sound.
+        </p>
+      </div>
+      <div class="image">
+        <img src="images/her1.jpg" alt="her1" />
+      </div>
+    </section>
+
+    <section class="section fade-in reverse">
+      <div class="image">
+        <img src="images/her2.jpg" alt="her2" />
+      </div>
+      <div class="text">
+        <h2>You're my forever person 💞</h2>
+        <p>
+          I never believed in soulmates until I met you. Thank you for being patient, kind, and all mine.
+        </p>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="text">
+        <h2>You’re everything I ever wanted 💗</h2>
+        <p>
+          I built this little world just for you — to say I love you more than words, and you deserve everything beautiful.
+        </p>
+      </div>
+      <div class="image">
+        <img src="images/her3.jpg" alt="her3" />
+      </div>
+    </section>
+
+    <section class="footer fade-in">
+      <button class="heart-button">You're my whole world 💝</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
