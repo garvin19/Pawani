@@ -1,28 +1,30 @@
-function checkPassword() {
-  const correctPassword = "Iloveyou";
-  const input = document.getElementById("password").value;
+const correctPassword = "Iloveyou";
 
+function checkPassword() {
+  const input = document.getElementById("password").value;
   if (input === correctPassword) {
-    triggerHeartBurst();
+    showHeartBurst();
     setTimeout(() => {
       document.getElementById("login-screen").style.display = "none";
       document.getElementById("main-content").style.display = "block";
-    }, 1200);
+    }, 1000);
   } else {
-    alert("Wrong password, try again ❤️");
+    alert("Wrong password! Try again, my love.");
   }
 }
 
-function triggerHeartBurst() {
+function showHeartBurst() {
   const container = document.getElementById("heart-burst");
-  container.innerHTML = "";
   for (let i = 0; i < 20; i++) {
     const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = "💖";
-    heart.style.setProperty('--x', `${Math.random() * 200 - 100}px`);
-    heart.style.setProperty('--y', `${Math.random() * -200}px`);
+    heart.textContent = "💖";
+    heart.style.position = "absolute";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.top = "50%";
+    heart.style.fontSize = "20px";
+    heart.style.animation = "burst 1s ease-out forwards";
     container.appendChild(heart);
+    setTimeout(() => heart.remove(), 1000);
   }
 }
 

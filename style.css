@@ -1,141 +1,165 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  background: #ffe6f0;
   overflow-x: hidden;
 }
 
 #login-screen {
   height: 100vh;
+  background: linear-gradient(to right, #ffb6c1, #ffe4e1);
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffccd5, #ffe6f0);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .login-box {
-  text-align: center;
   background: white;
-  padding: 30px;
+  padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
 }
 
 .login-box h2 {
   font-family: 'Sacramento', cursive;
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-input[type="password"] {
-  padding: 10px;
-  font-size: 1em;
+.login-box input {
+  padding: 0.8rem;
   width: 80%;
+  border: none;
   border-radius: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 #login-button {
-  padding: 10px 20px;
-  background-color: #ff4d6d;
-  color: white;
+  padding: 0.8rem 2rem;
+  background-color: #ff69b4;
   border: none;
-  border-radius: 30px;
-  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
 }
 
 #login-button:hover {
-  background-color: #ff1a4d;
+  background-color: #ff85c1;
+}
+
+.hearts-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floating-hearts::before {
+  content: "";
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff69b4" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42..."/></svg>');
+  animation: floatUp 20s linear infinite;
+  opacity: 0.3;
+  position: fixed;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 -100%;
+  }
 }
 
 .section {
-  padding: 60px 20px;
+  padding: 4rem 2rem;
   text-align: center;
+  position: relative;
 }
 
 .section-1 {
-  background: #ffe6f0;
+  background: #ffc0cb;
 }
 
 .section-2 {
-  background: #ffd6e0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  background: #ffe4e1;
 }
 
 .section-3 {
-  background: #ffcce5;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  background: #ffd1dc;
 }
 
 .section-4 {
-  background: #ffb3d9;
+  background: #fff0f5;
 }
 
-.text, .image {
-  width: 90%;
-  max-width: 400px;
-  margin: 20px;
+.main-heading {
+  font-family: 'Sacramento', cursive;
+  font-size: 3rem;
 }
 
-img {
+.sub-heading {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.content-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.content-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.text {
+  flex: 1;
+  max-width: 500px;
+  font-size: 1.2rem;
+}
+
+.image {
+  flex: 1;
+  max-width: 300px;
+}
+
+.image img {
   width: 100%;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+.final-text {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 
 .love-message {
   font-family: 'Sacramento', cursive;
-  font-size: 2.5em;
-  color: #fff;
-  text-shadow: 0 0 10px #ff4d6d;
-  animation: pulse 2s infinite;
+  font-size: 2.5rem;
+  color: #ff1493;
+  text-shadow: 0 0 10px #ff69b4;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+@media screen and (max-width: 768px) {
+  .content-row {
+    flex-direction: column !important;
+    text-align: center;
+  }
 }
-
-/* Floating Hearts */
-.floating-hearts::before,
-.floating-hearts::after {
-  content: '💖 💕 💗 💓 💞 💘';
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  font-size: 2rem;
-  animation: floatHearts 10s linear infinite;
-  opacity: 0.2;
-  z-index: 0;
-}
-
-@keyframes floatHearts {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100vh); }
-}
-
-/* Heart burst animation */
-.heart {
-  position: absolute;
-  color: #ff4d6d;
-  font-size: 1.5rem;
-  animation: burst 1s ease-out forwards;
-}
-
-@keyframes burst {
-  0% { opacity: 1; transform: translate(0, 0) scale(1); }
-  100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(0.5); }
-}
-
-
