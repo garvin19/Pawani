@@ -2,66 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Pawani 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To My Love</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="password-overlay" id="passwordOverlay">
-    <div class="password-box">
-      <h2>Enter your special code 💘</h2>
-      <input type="password" id="passwordInput" placeholder="Enter password" />
-      <button onclick="checkPassword()">Enter</button>
+  <div class="background">
+    <!-- Floating Hearts -->
+    <div class="floating-heart"></div>
+    <div class="floating-heart"></div>
+    <div class="floating-heart"></div>
+    <div class="floating-heart"></div>
+    <div class="floating-heart"></div>
+    <div class="floating-heart"></div>
+  </div>
+
+  <div class="container">
+    <h1 class="typed-text" id="typed-text"></h1>
+
+    <div class="section">
+      <img src="images/image1.jpg" alt="Her" class="image" />
+      <div class="text">
+        <h2>You’re My Everything</h2>
+        <p>Every moment with you is a memory I cherish. Your smile lights up even my darkest days, and your heart is the home my soul was searching for.</p>
+      </div>
+    </div>
+
+    <div class="section reverse">
+      <img src="images/image2.jpg" alt="Us" class="image" />
+      <div class="text">
+        <h2>My Safe Place</h2>
+        <p>With you, I found peace. I found laughter. I found love. This website is just a small token of everything I feel for you.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <button class="heart-button">I Love You ❤️</button>
     </div>
   </div>
 
-  <main class="container hidden">
-    <header class="hero fade-in">
-      <h1 class="typed-message" id="typedMessage"></h1>
-    </header>
+  <!-- Typed Message Animation -->
+  <script>
+    const message = "Happy Girlfriend's Day, My Love 💕";
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("typed-text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
 
-    <section class="section fade-in">
-      <div class="text">
-        <h2>You're the sunshine in my cloudy days ☀️</h2>
-        <p>
-          Every moment with you feels magical. Your smile is my favorite view, and your laugh is my favorite sound.
-        </p>
-      </div>
-      <div class="image">
-        <img src="images/her1.jpg" alt="her1" />
-      </div>
-    </section>
-
-    <section class="section fade-in reverse">
-      <div class="image">
-        <img src="images/her2.jpg" alt="her2" />
-      </div>
-      <div class="text">
-        <h2>You're my forever person 💞</h2>
-        <p>
-          I never believed in soulmates until I met you. Thank you for being patient, kind, and all mine.
-        </p>
-      </div>
-    </section>
-
-    <section class="section fade-in">
-      <div class="text">
-        <h2>You’re everything I ever wanted 💗</h2>
-        <p>
-          I built this little world just for you — to say I love you more than words, and you deserve everything beautiful.
-        </p>
-      </div>
-      <div class="image">
-        <img src="images/her3.jpg" alt="her3" />
-      </div>
-    </section>
-
-    <section class="footer fade-in">
-      <button class="heart-button">You're my whole world 💝</button>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+  <!-- Colorful Floating Hearts Script -->
+  <script>
+    const colors = ['#ffb6c1', '#ff69b4', '#ff85b3', '#ffc0cb', '#f9a8d4', '#e879f9'];
+    document.querySelectorAll('.floating-heart').forEach(heart => {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.backgroundColor = color;
+      heart.style.setProperty('--heart-color', color);
+    });
+  </script>
 </body>
 </html>
