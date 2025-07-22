@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For You ❤️</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Quicksand:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="login-screen">
     <div class="login-box">
       <h2>Welcome, My Love 💖</h2>
-      <input type="password" id="password" placeholder="Enter the magic word…">
-      <button id="login-button">Enter</button>
-      <div id="heart-burst-container"></div>
+      <input type="password" id="password" placeholder="Enter the magic word..." />
+      <button onclick="checkPassword()" id="login-button">Enter</button>
+      <div class="hearts-container" id="heart-burst"></div>
     </div>
   </div>
 
-  <div id="main-content" class="hidden">
-    <div id="floating-hearts-bg"></div>
+  <div id="main-content" style="display: none;">
+    <div class="floating-hearts"></div>
 
     <section class="section section-1">
-      <h1 class="main-heading">Happy Girlfriend’s Day</h1>
+      <h1 class="main-heading">Happy Girlfriend's Day</h1>
       <h2 class="sub-heading">To the one who makes my world beautiful</h2>
     </section>
 
-    <section class="section section-2 content-row">
+    <section class="section section-2">
       <div class="text">
         <p>Your smile is my favorite sunrise, your laughter my favorite melody. Every day with you is a gift I never want to end.</p>
       </div>
       <div class="image">
-        <img src="her1.jpg" alt="Her photo 1">
+        <img src="images/her1.jpg" alt="Her 1">
       </div>
     </section>
 
-    <section class="section section-3 content-row reverse">
+    <section class="section section-3">
       <div class="image">
-        <img src="her2.jpg" alt="Her photo 2">
+        <img src="images/her2.jpg" alt="Her 2">
       </div>
       <div class="text">
         <p>From the first moment, I knew you were someone special. Your kindness, your strength, and your soul light up my life.</p>
@@ -52,4 +52,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
