@@ -8,32 +8,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="background">
-    <!-- Floating Hearts -->
-    <div class="floating-heart"></div>
-    <div class="floating-heart"></div>
-    <div class="floating-heart"></div>
-    <div class="floating-heart"></div>
-    <div class="floating-heart"></div>
-    <div class="floating-heart"></div>
+  <div class="heart-bg">
+    <!-- Hearts will be styled and animated in CSS -->
+    <div class="floating-heart" style="--i:0;"></div>
+    <div class="floating-heart" style="--i:1;"></div>
+    <div class="floating-heart" style="--i:2;"></div>
+    <div class="floating-heart" style="--i:3;"></div>
+    <div class="floating-heart" style="--i:4;"></div>
+    <div class="floating-heart" style="--i:5;"></div>
   </div>
 
   <div class="container">
-    <h1 class="typed-text" id="typed-text"></h1>
+    <h1 id="typed-text" class="typed-text"></h1>
 
     <div class="section">
       <img src="images/image1.jpg" alt="Her" class="image" />
       <div class="text">
-        <h2>You’re My Everything</h2>
-        <p>Every moment with you is a memory I cherish. Your smile lights up even my darkest days, and your heart is the home my soul was searching for.</p>
+        <h2>You’re My Light</h2>
+        <p>Your presence makes life beautiful. You turn ordinary days into magical memories.</p>
       </div>
     </div>
 
     <div class="section reverse">
       <img src="images/image2.jpg" alt="Us" class="image" />
       <div class="text">
-        <h2>My Safe Place</h2>
-        <p>With you, I found peace. I found laughter. I found love. This website is just a small token of everything I feel for you.</p>
+        <h2>Forever Yours</h2>
+        <p>This isn’t just a website — it’s a piece of my heart. Built for you. Loved by you. Inspired by you.</p>
       </div>
     </div>
 
@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <!-- Typed Message Animation -->
+  <!-- Typed Text Animation -->
   <script>
     const message = "Happy Girlfriend's Day, My Love 💕";
     let i = 0;
@@ -55,15 +55,6 @@
     }
     window.onload = typeWriter;
   </script>
-
-  <!-- Colorful Floating Hearts Script -->
-  <script>
-    const colors = ['#ffb6c1', '#ff69b4', '#ff85b3', '#ffc0cb', '#f9a8d4', '#e879f9'];
-    document.querySelectorAll('.floating-heart').forEach(heart => {
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      heart.style.backgroundColor = color;
-      heart.style.setProperty('--heart-color', color);
-    });
-  </script>
 </body>
 </html>
+
