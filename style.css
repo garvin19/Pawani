@@ -1,177 +1,195 @@
-body, html {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Quicksand', sans-serif;
   overflow-x: hidden;
-  background: #fff;
+  background: linear-gradient(to bottom right, #ffe6f0, #ffc2d1);
 }
 
 #login-screen {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(to right, #ffc0cb, #ffb6c1);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to top left, #ffd6e0, #ffe6f0);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .login-box {
-  text-align: center;
   background: white;
   padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+  text-align: center;
+  position: relative;
 }
 
-.login-box h2 {
-  font-family: 'Sacramento', cursive;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-input[type="password"] {
+.login-box input {
   padding: 10px;
-  width: 200px;
-  font-size: 16px;
+  margin-top: 15px;
+  width: 80%;
+  border: 2px solid #ff91a4;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  font-size: 16px;
 }
 
 #login-button {
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 30px;
-  background: pink;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#login-button:hover {
-  background: hotpink;
+  background-color: #ff85a2;
   color: white;
-}
-
-#main-content {
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
   position: relative;
-  z-index: 1;
-}
-
-.floating-hearts::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='%23ff69b4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
-  animation: floatHearts 30s linear infinite;
-  background-repeat: repeat;
-  opacity: 0.1;
-}
-
-@keyframes floatHearts {
-  from { background-position: 0 0; }
-  to { background-position: 0 -1000px; }
 }
 
 .section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.section-1 {
-  background: #ffe6ec;
-}
-
-.section-2 {
-  background: #ffd1dc;
+  padding: 50px 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
+.section-1 {
+  background: #ffe6f0;
+  flex-direction: column;
+  text-align: center;
+}
+
+.section-2 {
+  background: #ffd1dc;
+}
+
 .section-3 {
-  background: #ffe6f2;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  align-items: center;
-  justify-content: center;
+  background: #ffb6c1;
+  flex-direction: row-reverse;
 }
 
-.section-4 {
-  background: #fff0f5;
-}
-
-.text, .image {
-  flex: 1 1 300px;
+.section .text, .section .image {
+  width: 100%;
+  max-width: 400px;
   padding: 20px;
 }
 
-.image img {
+.section img {
   width: 100%;
-  max-width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
 }
 
-.main-heading {
-  font-family: 'Sacramento', cursive;
-  font-size: 3rem;
-  color: #d63384;
-}
-
-.sub-heading {
-  font-size: 1.5rem;
-  color: #555;
-}
-
-.final-text {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+.final-text, .love-message {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
 }
 
 .love-message {
-  font-size: 2rem;
-  color: #ff1493;
-  text-shadow: 0 0 10px #ff69b4;
   font-family: 'Sacramento', cursive;
+  font-size: 40px;
+  color: #ff4785;
+  text-shadow: 0 0 15px #ffb6c1;
 }
 
+/* Heart Burst Animation */
 .heart {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background: pink;
   transform: rotate(45deg);
-  animation: explode 0.8s ease-out forwards;
+  animation: burst 1s ease-out forwards;
 }
 
-.heart::before,
-.heart::after {
-  content: "";
+.heart::before, .heart::after {
+  content: '';
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background: pink;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -5px;
+  top: -10px;
   left: 0;
 }
-
 .heart::after {
+  left: -10px;
   top: 0;
-  left: -5px;
 }
 
-@keyframes explode {
-  0% { transform: scale(0); opacity: 1; }
-  100% { transform: scale(1.5) translateY(-20px); opacity: 0; }
+@keyframes burst {
+  to {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Floating Hearts Background */
+.background-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 182, 193, 0.6);
+  transform: rotate(45deg);
+  animation: floatUp 10s linear infinite;
+}
+
+.floating-heart::before,
+.floating-heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 182, 193, 0.6);
+  border-radius: 50%;
+}
+
+.floating-heart::before {
+  top: -10px;
+  left: 0;
+}
+.floating-heart::after {
+  top: 0;
+  left: -10px;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(45deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .section .text, .section .image {
+    width: 45%;
+  }
 }
