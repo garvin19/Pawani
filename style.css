@@ -1,178 +1,148 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Quicksand', sans-serif;
-  overflow-x: hidden;
-  background: #fff;
+/* Fade transitions */
+.fade-out {
+  animation: fadeOut 0.6s forwards;
+}
+.fade-in {
+  animation: fadeIn 0.8s forwards;
+}
+@keyframes fadeOut {
+  to { opacity: 0; pointer-events: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-#login-screen {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(to right, #ffc0cb, #ffb6c1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.login-box {
-  text-align: center;
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
-}
-
-.login-box h2 {
-  font-family: 'Sacramento', cursive;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-input[type="password"] {
-  padding: 10px;
-  width: 200px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-#login-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 30px;
-  background: pink;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#login-button:hover {
-  background: hotpink;
-  color: white;
-}
-
-#main-content {
-  position: relative;
-  z-index: 1;
-}
-
-.floating-hearts::before {
-  content: '';
+/* Heart burst effect improvements */
+#heart-burst {
+  pointer-events: none;
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='%23ff69b4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
-  animation: floatHearts 30s linear infinite;
-  background-repeat: repeat;
-  opacity: 0.1;
+  z-index: 10;
 }
-
-@keyframes floatHearts {
-  from { background-position: 0 0; }
-  to { background-position: 0 -1000px; }
-}
-
-.section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.section-1 {
-  background: #ffe6ec;
-}
-
-.section-2 {
-  background: #ffd1dc;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-.section-3 {
-  background: #ffe6f2;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  align-items: center;
-  justify-content: center;
-}
-
-.section-4 {
-  background: #fff0f5;
-}
-
-.text, .image {
-  flex: 1 1 300px;
-  padding: 20px;
-}
-
-.image img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
-}
-
-.main-heading {
-  font-family: 'Sacramento', cursive;
-  font-size: 3rem;
-  color: #d63384;
-}
-
-.sub-heading {
-  font-size: 1.5rem;
-  color: #555;
-}
-
-.final-text {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.love-message {
-  font-size: 2rem;
-  color: #ff1493;
-  text-shadow: 0 0 10px #ff69b4;
-  font-family: 'Sacramento', cursive;
-}
-
 .heart {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
   background: pink;
   transform: rotate(45deg);
-  animation: explode 0.8s ease-out forwards;
+  animation: explode 1.1s cubic-bezier(.61,-0.01,.7,1.01) forwards;
+  opacity: 0.85;
 }
-
 .heart::before,
 .heart::after {
   content: "";
   position: absolute;
-  width: 10px;
-  height: 10px;
-  background: pink;
+  width: 18px;
+  height: 18px;
+  background: inherit;
   border-radius: 50%;
 }
-
 .heart::before {
-  top: -5px;
+  top: -9px;
   left: 0;
 }
-
 .heart::after {
   top: 0;
-  left: -5px;
+  left: -9px;
 }
-
 @keyframes explode {
   0% { transform: scale(0); opacity: 1; }
-  100% { transform: scale(1.5) translateY(-20px); opacity: 0; }
+  80% { opacity: 1; }
+  100% { transform: scale(1.7) translateY(-40px); opacity: 0; }
+}
+
+/* Floating background hearts */
+.bg-heart {
+  position: absolute;
+  bottom: -40px;
+  color: #ffb6c1;
+  left: 0;
+  animation: floatBgHeart linear infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-heart::before {
+  content: '\2665';
+  font-family: 'Sacramento', cursive;
+}
+@keyframes floatBgHeart {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  100% { transform: translateY(-110vh) scale(1.2) rotate(20deg); }
+}
+
+/* Responsive layout improvements */
+.section-2, .section-3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.section-2 .text { order: 1; }
+.section-2 .image { order: 2; }
+.section-3 .image { order: 1; }
+.section-3 .text { order: 2; }
+@media (max-width: 800px) {
+  .section-2, .section-3 {
+    flex-direction: column;
+    gap: 0;
+  }
+  .text, .image {
+    padding: 10px;
+    max-width: 100%;
+  }
+  .image img {
+    max-width: 90vw;
+  }
+}
+
+/* Section backgrounds */
+.section-1 { background: linear-gradient(135deg, #ffe6ec 60%, #ffd1dc 100%); }
+.section-2 { background: linear-gradient(135deg, #ffd1dc 60%, #ffe6f2 100%); }
+.section-3 { background: linear-gradient(135deg, #ffe6f2 60%, #fff0f5 100%); }
+.section-4 { background: linear-gradient(135deg, #fff0f5 60%, #ffe6ec 100%); }
+
+/* Glowing love message */
+.love-message {
+  font-size: 2.3rem;
+  color: #ff69b4;
+  text-shadow: 0 0 18px #ffb6c1, 0 0 32px #fff, 0 0 8px #ff69b4;
+  font-family: 'Sacramento', cursive;
+  animation: glow 2s infinite alternate;
+  letter-spacing: 2px;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 8px #ff69b4, 0 0 18px #ffb6c1; }
+  to { text-shadow: 0 0 24px #ff69b4, 0 0 40px #fff; }
+}
+
+/* Font improvements */
+body, html {
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-size: 18px;
+  background: #fff;
+  color: #3a3a3a;
+}
+.main-heading, .love-message {
+  font-family: 'Sacramento', cursive;
+}
+
+/* Misc improvements */
+input[type="password"] {
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-size: 1.1rem;
+}
+#login-button {
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 18px;
+  box-shadow: 0 2px 8px #ffd1dc;
+}
+.login-box {
+  min-width: 260px;
+  width: 90vw;
+  max-width: 350px;
 }
 
